@@ -1,0 +1,46 @@
+Solutions:
+In MinotaurCupcake.java, guests enter according to a random number being picked,
+which represents the minotaur telling guests to enter the labyrinth. The solution
+to the problem lies in the guests choosing one person to keep track of how many 
+cupcakes have been eaten so far, and this works to track how many guests have gone
+through because the guests have agreed to eat one cupcake each. The counter is also
+the only one that will use the ability to request a new cupcake, and thus they will
+know to increase the count by one when they find the spot empty.
+
+In MinotaurVase.java, guests simply line up in a queue and then enter the room when
+they are both at the front of the line, and the sign says that the room is vacant.
+After entering, they just have to exit after some time and reset the sign to vacant.
+
+Efficiency and Runtime:
+Even though there are similarities between the two problems, and the fact that
+I used similar methods (atomic lock) to solve the problems, there is a pretty
+large difference in the execution times of the two programs. I think that this
+is due to the more random nature of the cupcake/labyrinth problem, and the fact
+that it also has more logic and operations to do when the guests have entered
+the area. The vase problem is much simpler in that way, guests only need to enter
+and then reset the sign. Since I used the queue option, there wasn't really a chance
+for guests to be entering multiple times before everyone else had gotten a chance,
+and thus the vase execution was always much quicker. In the cupcake problem, guests
+are randomly chosen to enter and this adds an additional layer that can make it take
+much longer if an ordering arises that is slower for the counter to do their job.
+
+Evaluation of Input Sizes:
+I ran each input value 5 times. Notice that the randomization causes larger ranges
+for the cupcake problem's execution times, and the more complex logic causes the 
+times to be longer overall
+
+Input = Number of Guests
+
+Cupcake:
+10: 14ms-30ms
+20: 221ms-341ms
+30: 278ms-509ms
+50: 3054ms-4051ms
+100: 15719ms-20071ms
+
+Vase:
+10: 11ms-17ms
+20: 14ms-17ms
+30: 16ms-21ms
+50: 19ms-24ms
+100: 30ms-38ms
